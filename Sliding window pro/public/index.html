@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">SP<span>A</span></div>
+        <div>
+            <h1>Student Performance Analyzer</h1>
+            <p>Analyze your marks using the Sliding Window algorithm</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <span class="tag">DSA MINI PROJECT</span>
+            <h2>Understand your performance.</h2>
+            <p>Find your best-performing consecutive test period in seconds.</p>
+        </section>
+
+        <section class="panel">
+            <h2>Enter your test data</h2>
+            <form id="analyzeForm">
+                <label for="marks">Test marks (0–100)</label>
+                <textarea id="marks" rows="3" required
+                    placeholder="60, 70, 80, 50, 90, 85, 75"></textarea>
+
+                <label for="k">Window size (K)</label>
+                <input id="k" type="number" min="1" value="3" required>
+
+                <div class="button-row">
+                    <button type="submit" id="analyzeBtn">Analyze Performance</button>
+                    <button type="button" id="sampleBtn" class="secondary">Load Sample</button>
+                </div>
+                <p id="message" role="status"></p>
+            </form>
+        </section>
+
+        <section id="results" hidden>
+            <h2 class="section-heading">Analysis results</h2>
+
+            <div class="stats">
+                <article class="stat-card">
+                    <p>Total tests</p>
+                    <h3 id="totalTests">0</h3>
+                </article>
+                <article class="stat-card">
+                    <p>Window size</p>
+                    <h3 id="windowSize">0</h3>
+                </article>
+                <article class="stat-card highlight">
+                    <p>Best average</p>
+                    <h3 id="bestAverage">0</h3>
+                </article>
+            </div>
+
+            <article class="panel best-panel">
+                <span class="tag">BEST PERFORMANCE</span>
+                <h2 id="bestPeriod">Tests 1–3</h2>
+                <p id="bestDetails"></p>
+            </article>
+
+            <article class="panel">
+                <h2>Window-by-window results</h2>
+                <p class="muted">Each row represents K consecutive tests.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Window</th>
+                                <th>Test range</th>
+                                <th>Total marks</th>
+                                <th>Average</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsBody"></tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="panel">
+                <h2>Average comparison</h2>
+                <div id="chart" class="chart" aria-label="Window average chart"></div>
+            </article>
+
+            <article class="panel">
+                <h2>Algorithm comparison</h2>
+                <div class="comparison">
+                    <div>
+                        <h3>Brute Force</h3>
+                        <p>Recalculates every window from scratch.</p>
+                        <strong>O(n × K)</strong>
+                    </div>
+                    <div>
+                        <h3>Sliding Window</h3>
+                        <p>Updates the sum by removing and adding one mark.</p>
+                        <strong>O(n)</strong>
+                    </div>
+                </div>
+                <p class="muted">Both approaches produce the same window sums. The optimized Java algorithm runs in linear time.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>Built with Java, HTML, CSS, JavaScript &amp; DSA</footer>
+    <script src="script.js"></script>
+</body>
+</html>
