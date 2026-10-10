@@ -1,5 +1,4 @@
-# Sliding-Window-Problem
-Java implementation of the Sliding Window Maximum problem
+
 # Sliding Window Maximum — Java
 
 A Java implementation of the **Sliding Window Maximum** problem using the Deque data structure to efficiently find the maximum element in every contiguous window of size `k`.
